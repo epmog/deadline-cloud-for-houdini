@@ -28,6 +28,8 @@ class HoudiniVersion:
 
     PYTHON_VERSIONS = {
         "19.5": "3.9",
+        "20.0": "3.10",
+        "20.5": "3.11"
     }
 
     def __init__(self, arg_version: Optional[str] = None):
@@ -123,8 +125,6 @@ def _build_deps_env(destination: Path, python_version: str, local_deps: list[Pat
         "install",
         "--target",
         str(destination),
-        "--platform",
-        get_pip_platform(platform.system()),
         "--python-version",
         python_version,
         "--only-binary=:all:",
